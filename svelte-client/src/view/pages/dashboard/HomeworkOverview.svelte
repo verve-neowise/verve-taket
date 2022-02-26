@@ -1,49 +1,48 @@
 <script lang="ts">
-import homeworksStore from "../../../store/homeworks.store";
-import type { HomeworkDetails } from "../../../data/model/homework.model";
+import { mapFormDataToArray } from "../../../functions/forms";
+
+import { details } from "../../../store/homeworks.store";
 import { Loading, Success, Error } from "../../../store/network-result";
 
-import sidebarState from '../../states/sidebar.state'
+let form;
 
-  let data: HomeworkDetails = undefined
-
-
-  sidebarState.activeLink.subscribe((value) => {
-    
-    let store = homeworksStore.detailOf(value)
-
-    store.subscribe((value) => {
-      if (value instanceof Success) {
-        data = value.result as HomeworkDetails
-      }
-    })
-  })
-
-  
-  console.log('modelId: ', data.id);
-
+function sendSolves(event) {
+  let data = mapFormDataToArray(new FormData(event.target))
+  console.log(data);
+}
 
 </script>
 
-<div class="card flex-3 p-5 w-full bg-base-200 ml-10">
-    {#if data}
+<div class="card { $details instanceof Success ? 'complete' : ''  } flex-3 p-5 w-full bg-base-200 ml-10">
+    {#if $details instanceof Success }
       <div class="card-title bg-base-200 rounded-box p-4">
-        <h1 class="text-2xl">{data.name}</h1>
+        <h1 class="text-2xl">{$details.result.name}</h1>
       </div>
+
+      <p class="text-sm text-secondary bg-[#ffffff05]  p-2">{$details.result.comment}</p>
 
       <div class="card-body min-h-50">
-        <p class="text-sm">{data.details}</p>
-        <p class="text-xs">{data.comment}</p>
-      </div>
+        <p class="text-base">{$details.result.details}</p>
 
-      <div class="justify-end card-actions">
-        <button class="btn btn-primary btn-sm">Send all solves</button>
-      </div>
-    {:else if result instanceof Loading}
+        <form on:submit|preventDefault={sendSolves} class="flex flex-col gap-3 mt-5">
+          
+          {#each $details.result.problems as problem}
+            <div class="text-primary"> { problem.name } </div>
+            <div class="text-base-content opacity-50 text-sm"> { problem.comment } </div>
+            <textarea name={problem.name} class="textarea w-full"></textarea>
+          {/each}
+
+          <div class="justify-end card-actions pt-2">
+            <button type="submit" class="btn btn-primary btn-sm">Send all solves</button>
+          </div>
+        </form>
+
+    </div>
+    {:else if $details instanceof Loading}
       <div class="h-[100%] flex justify-center items-center">
         <div class="btn btn-ghost loading" />
       </div>
-    {:else if result instanceof Error}
+    {:else if $details instanceof Error}
       <div class="h-full flex justify-center items-center">
           <div class="flex gap-2">
               <svg
@@ -58,9 +57,20 @@ import sidebarState from '../../states/sidebar.state'
                       d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   /></svg
               >
-              <span>{result.message}</span>
+              <span>{$details.message}</span>
           </div>
       </div>
   {/if}
 
 </div>
+
+<style>
+    .card {
+      max-height: 200px;
+      transition: max-height 500ms ease-in 0s;
+    }
+    .card.complete {
+      max-height: 5000px;
+      transition: max-height 500ms ease-in 0s;
+    }
+</style>

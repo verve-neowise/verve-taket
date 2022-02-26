@@ -1,53 +1,40 @@
 <script lang="ts">
-import type { HomeworkModel } from "../../../data/model/homework.model";
-import homeworkStore from "../../../store/homeworks.store";
+import { fetch, homeworks, changeHomework,  current } from "../../../store/homeworks.store";
 
-import { Loading, Success } from "../../../store/network-result";
+import { Loading, Success, Error } from "../../../store/network-result";
 import Homework from "../../components/Homework.svelte";
 
-import sidebarState from "../../states/sidebar.state";
+homeworks.subscribe(value => {
 
-let data = homeworkStore.homeworks();
-
-let activeLink = sidebarState.activeLink
-
-function select(id: string) {
-    sidebarState.changeLink(id)
-}
-
-data.subscribe((result) => {
-    if (result instanceof Success) {
-      let value = result.result
-      if (value.length > 0) {
-        select(value[0].id)
-      }
+    if (value instanceof Success) {
+        changeHomework(value.result[0])
     }
 })
 
-homeworkStore.fetch()
+fetch()
 
 </script>
 
 <ul
-    class="menu bg-base-200 menu-compact flex flex-column gap-1 flex-2 p-2 w-1/4 min-w-[200px] rounded-box min-h-[200px]"
+    class="menu bg-base-200 menu-compact flex flex-column gap-1 flex-2 p-2 w-1/4 min-w-[250px] rounded-box min-h-[200px]"
 >
     <div class="p-5">
         <h1 class="text-2xl font-medium text-primary">Homeworks</h1>
     </div>
 
-    {#if $data instanceof Success}
-        {#each $data.result as homework}
+    {#if $homeworks instanceof Success}
+        {#each $homeworks.result as homework, i}
             <Homework
-                isActive={$activeLink === homework.id}
+                isActive={ $current ? $current.id === homework.id : i === 0 }
                 model={homework}
-                callback={select}
+                callback={changeHomework}
             />
         {/each}
-    {:else if $data === Loading}
+    {:else if $homeworks instanceof  Loading}
         <div class="h-full flex justify-center items-center">
             <div class="btn btn-ghost loading" />
         </div>
-    {:else if $data instanceof Error}
+    {:else if $homeworks instanceof Error}
         <div class="h-full flex justify-center items-center">
             <div class="flex gap-2">
                 <svg
@@ -62,7 +49,7 @@ homeworkStore.fetch()
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     /></svg
                 >
-                <span>{$data.message}</span>
+                <span>{$homeworks.message}</span>
             </div>
         </div>
     {/if}

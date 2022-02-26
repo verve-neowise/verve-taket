@@ -1,5 +1,5 @@
 import { delay } from "../../functions/utils"
-import { HomeworkDetails, HomeworkModel } from "../model/homework.model"
+import { HomeworkDetails, HomeworkModel, Problem } from "../model/homework.model"
 import { Status } from "../model/status.enum"
 
 const homeworks = [
@@ -27,7 +27,10 @@ const getHomeworkDetails = async ( id: string ) => {
         homework.rate,
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi. Delectus laboriosam blanditiis eos expedita officiis id asperiores, ad adipisci assumenda quia cupiditate?",
         "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
-        []
+        [ 
+            new Problem("index.html", "Write a index.html with Bootstrap css framework!"),
+            new Problem("style.scss", "Write a style.css styles with sass preprocessor!")
+        ]
     )
 }
 

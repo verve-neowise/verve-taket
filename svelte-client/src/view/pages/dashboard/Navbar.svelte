@@ -1,13 +1,13 @@
 <script lang='ts'>
+import { theme, changeTheme } from "../../../store/app.store";
+
 import { Link } from "svelte-navigator";
 
 const themes = ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade"]
 
-function changeTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme)
-}
-
-changeTheme('dark')
+theme.subscribe(value => {
+  document.documentElement.setAttribute('data-theme', value)
+})
 
 </script>
 

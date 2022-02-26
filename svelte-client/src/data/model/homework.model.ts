@@ -14,12 +14,22 @@ export class HomeworkModel {
     }
 }
 
+export class Problem {
+    name: string
+    comment: string
+
+    constructor(name: string, comment: string) {
+        this.name = name
+        this.comment = comment
+    }
+}
+
 export class HomeworkDetails extends HomeworkModel {
 
     details: string
     comment: string
 
-    problems: []
+    problems: Problem[]
 
     constructor(
         id: string, 
@@ -28,7 +38,7 @@ export class HomeworkDetails extends HomeworkModel {
         rate: string = '0', 
         details: string, 
         comment: string, 
-        problems: [] = []
+        problems: Problem[] = []
         ) {
         super(id, name, status, rate)
         this.details = details

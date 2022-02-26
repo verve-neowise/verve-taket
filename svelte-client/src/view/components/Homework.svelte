@@ -5,7 +5,7 @@ import { Status } from "../../data/model/status.enum";
 
   export let model: HomeworkModel = undefined;
   export let isActive = false;
-  export let callback: (id: string) => void;
+  export let callback: (model: HomeworkModel) => void;
 
   let statusMap = {};
 
@@ -19,19 +19,17 @@ import { Status } from "../../data/model/status.enum";
   <!-- svelte-ignore a11y-missing-attribute -->
   <a
     class=" {isActive ? 'bg-primary' : ''} "
-    on:click={() => callback(model.id)}
+    on:click={() => callback(model)}
   >
     <div class="flex justify-between w-full items-center">
       <div class="w-full {isActive ? 'text-primary-content' : ''}">
         {model.name}
       </div>
-      {#if model.status !== Status.neutral}
         <div
           class="badge badge-xs {statusMap[
             model.status
           ]} border-none aspect-square text-xs"
         />
-      {/if}
     </div>
 </a>
 </li>

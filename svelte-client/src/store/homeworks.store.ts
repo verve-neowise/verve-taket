@@ -5,32 +5,24 @@ import { Error, Loading, NetworkResult, Success }  from './network-result';
 
 type Empty = HomeworkModel[]
 
-const _homeworks = writable<NetworkResult<HomeworkModel>>(Loading)
+export const current = writable<HomeworkModel>(undefined)
+export const homeworks = writable<NetworkResult<HomeworkModel>>(new Loading())
+export const details = writable<NetworkResult<HomeworkDetails>>(new Loading())
 
-const homeworks = () => _homeworks
-
-const fetch = async () => {
-    _homeworks.set(new Loading())
+export const fetch = async () => {
+    homeworks.set(new Loading())
     const result = await homeworkApi.getHomeworks()
-    _homeworks.set(new Success(result))
+    homeworks.set(new Success(result))
 }
 
-const detailOf = (id: string) => {
-    const store = writable<NetworkResult<HomeworkDetails>>(new Loading())
+export const changeHomework = async (homework: HomeworkModel) => {
 
-    homeworkApi.getHomeworkDetails(id)
-        .then(value => {
-            store.set(new Success(value))
-        })
-        .catch(reason => {
-            store.set(new Error(reason))
-        })
+    current.set(homework)
 
-    return store
-}
+    console.log(homework);
 
-export default {
-    homeworks,
-    fetch,
-    detailOf
+    details.set(new Loading())
+    const result = await homeworkApi.getHomeworkDetails(homework.id)
+    // details.set(new Error('error while loading list.'))
+    details.set(new Success(result))
 }
