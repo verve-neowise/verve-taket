@@ -1,5 +1,5 @@
 import { delay } from "../../functions/utils"
-import { HomeworkModel } from "../model/homework.model"
+import { HomeworkDetails, HomeworkModel } from "../model/homework.model"
 import { Status } from "../model/status.enum"
 
 const homeworks = [
@@ -11,6 +11,22 @@ const homeworks = [
 ]
 
 export const getHomeworks = async () => {
-    await delay(2500)
+    await delay(1500)
     return homeworks
+}
+
+export const getHomeworkDetails = async ( id: string ) => {
+    await delay(1000)
+    
+    const homework = homeworks.find(model => model.id === id)
+
+    return new HomeworkDetails(
+        homework.id,
+        homework.name, 
+        homework.status,
+        homework.rate,
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi. Delectus laboriosam blanditiis eos expedita officiis id asperiores, ad adipisci assumenda quia cupiditate?",
+        "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
+        []
+    )
 }

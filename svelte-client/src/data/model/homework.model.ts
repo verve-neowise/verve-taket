@@ -13,3 +13,26 @@ export class HomeworkModel {
         this.rate = rate
     }
 }
+
+export class HomeworkDetails extends HomeworkModel {
+
+    details: string
+    comment: string
+
+    problems: []
+
+    constructor(
+        id: string, 
+        name: string, 
+        status: Status, 
+        rate: string = '0', 
+        details: string, 
+        comment: string, 
+        problems: [] = []
+        ) {
+        super(id, name, status, rate)
+        this.details = details
+        this.comment = comment
+        this.problems = problems
+    }
+}
