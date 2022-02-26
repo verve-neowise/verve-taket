@@ -10,12 +10,12 @@ const homeworks = [
     new HomeworkModel('0005', 'Javascript. Object and Functions', Status.neutral),
 ]
 
-export const getHomeworks = async () => {
+const getHomeworks = async () => {
     await delay(1500)
     return homeworks
 }
 
-export const getHomeworkDetails = async ( id: string ) => {
+const getHomeworkDetails = async ( id: string ) => {
     await delay(1000)
     
     const homework = homeworks.find(model => model.id === id)
@@ -29,4 +29,9 @@ export const getHomeworkDetails = async ( id: string ) => {
         "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
         []
     )
+}
+
+export default {
+    getHomeworks,
+    getHomeworkDetails
 }

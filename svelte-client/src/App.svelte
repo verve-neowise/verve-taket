@@ -1,9 +1,8 @@
 <script lang="ts">
   import logo from './assets/svelte.png';
   import { Router, Route } from 'svelte-navigator';
-
-  import Login from './pages/Login.svelte';
-  import Dashboard from './pages/Dashboard.svelte';
+  import Dashboard from './view/pages/Dashboard.svelte';
+  import Login from './view/pages/Login.svelte';
 </script>
 
 <main class="bg-base-100 h-full" >

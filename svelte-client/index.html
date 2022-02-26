@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
@@ -7,6 +7,9 @@
     <title>Svelte + TS + Vite App</title>
   </head>
   <body>
+    <script>
+      let i = document.documentElement.setAttribute('data-theme', 'dark')
+    </script>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>

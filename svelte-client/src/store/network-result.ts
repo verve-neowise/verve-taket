@@ -1,10 +1,9 @@
 export interface NetworkResult<T> {
 }
 
-class LoadingResult<T> implements NetworkResult<T> {
-}
+export class Loading<T> implements NetworkResult<T> {
 
-export const Loading = new LoadingResult()
+}
 
 export class Error<T> implements NetworkResult<T> {
 

@@ -6,7 +6,8 @@ export type AuthResponse = {
     token?: string
 }
 
-export const athorincate = async (username: string, password: string) => {
+
+const athorincate = async (username: string, password: string) => {
 
     let response: AuthResponse
 
@@ -28,4 +29,8 @@ export const athorincate = async (username: string, password: string) => {
     await delay(2000)
 
     return response
+}
+
+export default {
+    athorincate
 }
