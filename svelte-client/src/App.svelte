@@ -3,7 +3,7 @@
   import { Router, Route } from 'svelte-navigator';
 
   import Login from './pages/Login.svelte';
-import Main from './pages/Dashboard.svelte';
+  import Dashboard from './pages/Dashboard.svelte';
 </script>
 
 <main class="bg-base-100 h-full" >
@@ -11,7 +11,7 @@ import Main from './pages/Dashboard.svelte';
   <Router>
 
     <Route path='/'>
-      <Login/>
+      <Dashboard/>
     </Route>
 
     <Route path='login'>
@@ -19,7 +19,7 @@ import Main from './pages/Dashboard.svelte';
     </Route>
 
     <Route path="dashboard">
-      <Main/>
+      <Dashboard/>
     </Route>
 
   </Router>
