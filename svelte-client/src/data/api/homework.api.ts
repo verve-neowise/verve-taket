@@ -5,7 +5,7 @@ import { Status } from "../model/status.enum"
 const homeworks = [
     new HomeworkModel('0001', 'Flexbox', Status.success, '5'),
     new HomeworkModel('0002', 'Preprocessors SCSS', Status.wrong, '2'),
-    new HomeworkModel('0003', 'Bootstrap', Status.wait, '3'),
+    new HomeworkModel('0003', 'Bootstrap', Status.send, '3'),
     new HomeworkModel('0004', 'Javascript. Problems', Status.neutral),
     new HomeworkModel('0005', 'Javascript. Object and Functions', Status.neutral),
 ]

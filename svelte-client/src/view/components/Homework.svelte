@@ -11,7 +11,7 @@ import { Status } from "../../data/model/status.enum";
 
   statusMap[Status.success] = "bg-green-500";
   statusMap[Status.wrong] = "bg-red-500";
-  statusMap[Status.wait] = "bg-orange-500";
+  statusMap[Status.send] = "bg-blue-500";
   statusMap[Status.neutral] = "";
 </script>
 

@@ -6,7 +6,9 @@ import LoadButton from "../components/LoadButton.svelte";
 import { useNavigate } from "svelte-navigator";
 
 import { mapFormData } from "../../functions/forms";
-import loginApi from "../../data/api/login.api";
+import { auth, authorincate } from "../../store/login.store";
+import { Error, Loading, Success } from "../../store/network-result";
+import Alert from "../components/Alert.svelte";
 
 const navigate = useNavigate()
 
@@ -15,25 +17,19 @@ type FormObject = {
     password: string
 }
 
-let isLoading = false
-let status = 200
-
 const submitForm = async (e: Event) => {
-
-    isLoading = true
 
     const formData = new FormData(e.target as HTMLFormElement)
     const { username, password } = mapFormData(formData) as FormObject
 
-    const response = await loginApi.athorincate(username, password) 
+    authorincate(username, password)
+}
 
-    isLoading = false
-    status = response.status
-
-    if (status === 200) {
+auth.subscribe(nr => {
+    if (nr instanceof Success) {
         navigate('/dashboard')
     }
-}
+})
 
 </script>
 
@@ -45,13 +41,9 @@ const submitForm = async (e: Event) => {
                 text="Login"
             />
     
-            {#if status !== 200}
-                <div class="alert shadow-lg alert-warning w-full animate-pulse">
-                    <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-                    <span>Warning: Invalid username or password</span>
-                    </div>
-                </div>
+            {#if $auth instanceof Error}
+                <Alert
+                    message={$auth.message}/>
             {/if}
     
             <form on:submit|preventDefault={submitForm} action="#" autocomplete="off" class="flex flex-col gap-5">
@@ -68,17 +60,13 @@ const submitForm = async (e: Event) => {
                 />
                 
                 <LoadButton
-                    loading={isLoading}
+                    loading={ $auth instanceof Loading }
                     label="Login"
                 />
             </form>
         </div>
-    
     </div>
-    
-    <p class="text-base-content mt-10">Username: neowise <br> Password: parool </p>
 </div>
-
 
 <style lang="postcss">
 </style>

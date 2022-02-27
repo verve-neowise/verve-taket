@@ -1,34 +1,18 @@
 import { delay } from "../../functions/utils"
+import { Auth, User } from "../model/auth.model"
+import { UnauthorizedException } from "./errors/unauthorized.ex"
 
-export type AuthResponse = {
-    status: number,
-    message: string,
-    token?: string
-}
 
+const user = new User('Olimjon Mahmudov', 'Web 140')
 
 const athorincate = async (username: string, password: string) => {
-
-    let response: AuthResponse
-
-    if (username === 'neowise' && password === 'parool') {
-
-        response = {
-            status: 200,
-            message: 'Success',
-            token: 'some-token-here'
-        }
+    await delay(2000)
+    if (username === 'admin' && password === '1234') {
+        return new Auth(user, '', '1234asdqqAKSjdaNMX')
     }
     else {
-        response = {
-            status: 401,
-            message: 'Unathorized',
-        }
+        throw new UnauthorizedException('Invalid username or password.')
     }
-
-    await delay(2000)
-
-    return response
 }
 
 export default {

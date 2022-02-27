@@ -1,6 +1,6 @@
 export enum Status {
     success,
     wrong,
-    wait,
+    send,
     neutral
 }
