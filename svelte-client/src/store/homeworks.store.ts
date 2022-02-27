@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import homeworkApi from "../data/api/homework.api";
 import type { HomeworkDetails, HomeworkModel } from "../data/model/homework.model";
-import { Error, Loading, NetworkResult, Success }  from './network-result';
+import { Error, Loading, NetworkResult, Success }  from '../data/network-result';
 
 type Empty = HomeworkModel[]
 

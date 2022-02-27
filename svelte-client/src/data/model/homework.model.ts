@@ -1,5 +1,15 @@
 import type { Status } from "./status.enum"
 
+export class Resource {
+    name: string
+    link: string
+
+    constructor(name: string, link: string) {
+        this.name
+        this.link
+    }
+}
+
 export class HomeworkModel {
     id: string
     name: string
@@ -14,13 +24,24 @@ export class HomeworkModel {
     }
 }
 
+export enum ProblemType {
+    code,
+    link,
+    text,
+    file
+}
+
 export class Problem {
+    code: string
     name: string
     comment: string
+    type: ProblemType
 
-    constructor(name: string, comment: string) {
+    constructor(code: string, name: string, comment: string, type: ProblemType) {
+        this.code = code
         this.name = name
         this.comment = comment
+        this.type = type
     }
 }
 
@@ -28,6 +49,7 @@ export class HomeworkDetails extends HomeworkModel {
 
     details: string
     comment: string
+    resources: Resource[]
 
     problems: Problem[]
 
@@ -38,11 +60,13 @@ export class HomeworkDetails extends HomeworkModel {
         rate: string = '0', 
         details: string, 
         comment: string, 
+        resouces: Resource[] = [],
         problems: Problem[] = []
         ) {
         super(id, name, status, rate)
         this.details = details
         this.comment = comment
+        this.resources = resouces
         this.problems = problems
     }
 }

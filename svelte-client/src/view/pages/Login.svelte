@@ -7,7 +7,7 @@ import { useNavigate } from "svelte-navigator";
 
 import { mapFormData } from "../../functions/forms";
 import { auth, authorincate } from "../../store/login.store";
-import { Error, Loading, Success } from "../../store/network-result";
+import { Error, Loading, Success } from "../../data/network-result";
 import Alert from "../components/Alert.svelte";
 
 const navigate = useNavigate()

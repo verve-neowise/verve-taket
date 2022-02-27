@@ -3,7 +3,7 @@ import { writable } from "svelte/store";
 import loginApi from "../data/api/login.api";
 import type { Auth } from "../data/model/auth.model";
 
-import { Error, Loading, NetworkResult, Success } from "./network-result";
+import { Error, Loading, NetworkResult, Success } from "../data/network-result";
 
 export const auth = writable<NetworkResult<Auth>>(undefined)
 

@@ -6,10 +6,14 @@ import Indeterminate from "../../components/Indeterminate.svelte";
 import { mapFormDataToArray } from "../../../functions/forms";
 
 import { details } from "../../../store/homeworks.store";
-import { Loading, Success, Error } from "../../../store/network-result";
+import { Loading, Success, Error } from "../../../data/network-result";
 import Comment from "./Comment.svelte";
-import TextArea from "./TextArea.svelte";
+import TextArea from "./Code.svelte";
+import Element from './Element.svelte'
 import Title from "./Title.svelte";
+import { Problem, ProblemType } from "../../../data/model/homework.model";
+import LinkInput from "./LinkInput.svelte";
+import Resources from "./Resources.svelte";
 
   function sendSolves(event) {
     let data = mapFormDataToArray(new FormData(event.target));
@@ -24,21 +28,35 @@ import Title from "./Title.svelte";
     <Title value={ $details.result.name }/>
     <Comment value={$details.result.comment}/>
 
-    <div class="card-body min-h-50">
+    <Resources values={$details.result.resouces}/>
 
-      <p class="text-base">{$details.result.details}</p>
+      <p class="text-base py-5">{$details.result.details}</p>
 
-      <form on:submit|preventDefault={sendSolves} class="flex flex-col gap-3 mt-5">
+      <form on:submit|preventDefault={sendSolves} class="flex flex-col gap-5">
 
         {#each $details.result.problems as problem}
-          <TextArea data={problem}/>
+          <Element title={problem.name} message={problem.comment} >
+            
+            {#if problem.type === ProblemType.code} 
+              
+              <TextArea data={problem} ></TextArea>
+            
+            {:else if problem.type === ProblemType.link}
+            
+              <LinkInput data={problem}/>
+
+            {:else}
+              
+              <p>Unsupported element</p>
+
+            {/if}
+          </Element> 
         {/each}
 
         <div class="justify-end card-actions pt-2">
           <button type="submit" class="btn btn-primary btn-sm">Send all solves</button>
         </div>
       </form>
-</div>
 
   {:else if $details instanceof Loading}
 
