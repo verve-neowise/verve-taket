@@ -10,6 +10,16 @@ export class Resource {
     }
 }
 
+export class Message {
+    date: string
+    text: string
+
+    constructor(date: string, text: string) {
+        this.date = date
+        this.text = text
+    }
+}
+
 export class HomeworkModel {
     id: string
     name: string

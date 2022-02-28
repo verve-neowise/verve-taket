@@ -21,12 +21,15 @@ import { ProblemType } from "../data/model/homework.model";
   }
 </script>
 
-<div class="card flex-3 p-5 w-full bg-base-200 ml-10">
+<div class="card flex-3 p-5 w-full bg-base-200">
 
   {#if $details instanceof Success}
 
-    <Title value={ $details.result.name }/>
-    <Comment value={$details.result.comment}/>
+    <div class="flex justify-between items-center p-4">
+      <Title value={ $details.result.name }/>
+      <p class="opacity-50 text-base-content">01.02.2003</p>
+    </div>
+    <!-- <Comment value={$details.result.comment}/> -->
 
     <p class="text-base py-5">{$details.result.details}</p>
 
