@@ -1,14 +1,14 @@
 <script lang="ts">
-import Heading from "../components/Heading.svelte";
-import Input from "../components/Input.svelte";
-import LoadButton from "../components/LoadButton.svelte";
+import Heading from "./components/Heading.svelte";
+import Input from "./components/Input.svelte";
+import LoadButton from "./components/LoadButton.svelte";
 
 import { useNavigate } from "svelte-navigator";
 
-import { mapFormData } from "../../functions/forms";
-import { auth, authorincate } from "../../store/login.store";
-import { Error, Loading, Success } from "../../data/network-result";
-import Alert from "../components/Alert.svelte";
+import { mapFormData } from "../functions/forms";
+import { auth, authorincate } from "../store/login.store";
+import { Error, Loading, Success } from "../data/network-result";
+import Alert from "./components/Alert.svelte";
 
 const navigate = useNavigate()
 

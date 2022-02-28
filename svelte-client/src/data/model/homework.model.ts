@@ -5,8 +5,8 @@ export class Resource {
     link: string
 
     constructor(name: string, link: string) {
-        this.name
-        this.link
+        this.name = name
+        this.link = link
     }
 }
 
@@ -49,7 +49,7 @@ export class HomeworkDetails extends HomeworkModel {
 
     details: string
     comment: string
-    resources: Resource[]
+    _resources: Resource[]
 
     problems: Problem[]
 
@@ -68,5 +68,13 @@ export class HomeworkDetails extends HomeworkModel {
         this.comment = comment
         this.resources = resouces
         this.problems = problems
+    }
+
+    get resources () {
+        return this._resources
+    }
+
+    set resources (value: Resource[]) {
+        this._resources = value
     }
 }

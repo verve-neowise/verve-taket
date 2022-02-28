@@ -1,8 +1,8 @@
 <script lang="ts">
 
-  import Navbar from "./dashboard/Navbar.svelte";
-  import Sidebar from "./dashboard/Sidebar.svelte";
-  import HomeworkOverview from "./dashboard/HomeworkOverview.svelte";
+  import Navbar from "./navbar/Navbar.svelte";
+  import Sidebar from "./Sidebar.svelte";
+  import HomeworkOverview from "./HomeworkOverview.svelte";
 
 </script>
 

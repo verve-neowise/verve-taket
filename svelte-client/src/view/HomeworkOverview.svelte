@@ -1,19 +1,19 @@
 <script lang="ts">
-import Alert from "../../components/Alert.svelte";
-import Contain from "../../components/Contain.svelte";
-import Indeterminate from "../../components/Indeterminate.svelte";
+import Alert from "./components/Alert.svelte";
+import Contain from "./components/Contain.svelte";
+import Indeterminate from "./components/Indeterminate.svelte";
+import Comment from "./elements/Comment.svelte";
+import TextArea from "./elements/Code.svelte";
+import Element from './elements/Element.svelte'
+import Title from "./components/Title.svelte";
+import LinkElement from "./elements/LinkElement.svelte";
+import Resources from "./elements/ResourceGroup.svelte";
 
-import { mapFormDataToArray } from "../../../functions/forms";
+import { mapFormDataToArray } from "../functions/forms";
 
-import { details } from "../../../store/homeworks.store";
-import { Loading, Success, Error } from "../../../data/network-result";
-import Comment from "./Comment.svelte";
-import TextArea from "./Code.svelte";
-import Element from './Element.svelte'
-import Title from "./Title.svelte";
-import { Problem, ProblemType } from "../../../data/model/homework.model";
-import LinkInput from "./LinkInput.svelte";
-import Resources from "./Resources.svelte";
+import { details } from "../store/homeworks.store";
+import { Loading, Success, Error } from "../data/network-result";
+import { ProblemType } from "../data/model/homework.model";
 
   function sendSolves(event) {
     let data = mapFormDataToArray(new FormData(event.target));
@@ -28,9 +28,11 @@ import Resources from "./Resources.svelte";
     <Title value={ $details.result.name }/>
     <Comment value={$details.result.comment}/>
 
-    <Resources values={$details.result.resouces}/>
+    <p class="text-base py-5">{$details.result.details}</p>
 
-      <p class="text-base py-5">{$details.result.details}</p>
+    <Resources values={$details.result.resources}/>
+
+    <div class="divider"></div>
 
       <form on:submit|preventDefault={sendSolves} class="flex flex-col gap-5">
 
@@ -43,7 +45,7 @@ import Resources from "./Resources.svelte";
             
             {:else if problem.type === ProblemType.link}
             
-              <LinkInput data={problem}/>
+              <LinkElement data={problem}/>
 
             {:else}
               

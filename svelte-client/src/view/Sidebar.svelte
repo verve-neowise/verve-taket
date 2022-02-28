@@ -1,11 +1,11 @@
 <script lang="ts">
-import Alert from "../../components/Alert.svelte";
-import Contain from "../../components/Contain.svelte";
-import Indeterminate from "../../components/Indeterminate.svelte";
-import { fetch, homeworks, changeHomework,  current } from "../../../store/homeworks.store";
+import Alert from "./components/Alert.svelte";
+import Contain from "./components/Contain.svelte";
+import Indeterminate from "./components/Indeterminate.svelte";
+import { fetch, homeworks, changeHomework,  current } from "../store/homeworks.store";
 
-import { Loading, Success, Error } from "../../../data/network-result";
-import Homework from "../../components/Homework.svelte";
+import { Loading, Success, Error } from "../data/network-result";
+import Homework from "./components/Homework.svelte";
 
 homeworks.subscribe(value => {
 

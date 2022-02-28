@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { Problem } from "src/data/model/homework.model";
+import type { Problem } from "../../data/model/homework.model";
 
 export let data: Problem
 

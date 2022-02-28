@@ -5,7 +5,7 @@ import { Status } from "../../data/model/status.enum";
 
   export let model: HomeworkModel = undefined;
   export let isActive = false;
-  export let callback: (model: HomeworkModel) => void;
+  export let callback: (model: HomeworkModel) => Promise<void>;
 
   let statusMap = {};
 
@@ -25,11 +25,7 @@ import { Status } from "../../data/model/status.enum";
       <div class="w-full {isActive ? 'text-primary-content' : ''}">
         {model.name}
       </div>
-        <div
-          class="badge badge-xs {statusMap[
-            model.status
-          ]} border-none aspect-square text-xs"
-        />
+        <div class="badge badge-xs {statusMap[ model.status]} border-none aspect-square text-xs"/>
     </div>
 </a>
 </li>
