@@ -29,7 +29,8 @@ const getHomeworkDetails = async ( id: string ) => {
     const problems = [ 
         new Problem("repository", "Your repository", "Upload all files to github and paste link here", ProblemType.link),
         new Problem("index", "index.html", "Write a index.html with Bootstrap css framework!", ProblemType.code),
-        new Problem("style", "style.scss", "Write a style.css styles with sass preprocessor!", ProblemType.code)
+        new Problem("style", "style.scss", "Write a style.css styles with sass preprocessor!", ProblemType.code),
+        new Problem("zip", "All files as zip", "Compress all as zip and upload", ProblemType.file)
     ]
 
     return new HomeworkDetails(
@@ -39,6 +40,7 @@ const getHomeworkDetails = async ( id: string ) => {
         homework.rate,
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi. Delectus laboriosam blanditiis eos expedita officiis id asperiores, ad adipisci assumenda quia cupiditate?",
         "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
+        // undefined,
         resources,
         problems
     )

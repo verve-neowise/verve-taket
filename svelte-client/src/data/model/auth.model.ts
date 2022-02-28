@@ -1,10 +1,12 @@
 export class User {
     name: string
     group: string
+    avatar: string
 
-    constructor(name: string, group: string) {
+    constructor(name: string, group: string, avatar: string) {
         this.name = name
         this.group = group
+        this.avatar = avatar
     }
 }
 

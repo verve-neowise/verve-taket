@@ -3,7 +3,7 @@ import { Auth, User } from "../model/auth.model"
 import { UnauthorizedException } from "./errors/unauthorized.ex"
 
 
-const user = new User('Olimjon Mahmudov', 'Web 140')
+const user = new User('Olimjon Mahmudov', 'Web 140', 'https://api.lorem.space/image/face?hash=47449')
 
 const athorincate = async (username: string, password: string) => {
     await delay(2000)

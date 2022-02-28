@@ -10,9 +10,9 @@
 <main>
   <Navbar />
 
-  <div class="container-full mx-5 py-10 m-auto flex items-start gap-5">
+  <div class="container-full m-10 flex items-start gap-5">
       <Sidebar/>
       <HomeworkOverview/>
-      <Messages/>
+      <!-- <Messages/> -->
   </div>
 </main>

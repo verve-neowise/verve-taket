@@ -1,5 +1,4 @@
 <script lang="ts">
-  import logo from './assets/svelte.png';
   import { Router, Route } from 'svelte-navigator';
   import Dashboard from './view/Dashboard.svelte';
   import Login from './view/Login.svelte';

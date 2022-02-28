@@ -18,6 +18,7 @@ export const fetch = async () => {
 }
 
 export const changeHomework = async (homework: HomeworkModel) => {
+    current.set(homework)
     details.set(new Loading())
     messages.set(new Loading())
     const result = await homeworkApi.getHomeworkDetails(homework.id)
