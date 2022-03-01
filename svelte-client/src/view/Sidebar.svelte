@@ -18,7 +18,7 @@ fetch()
 
 </script>
 
-<ul class="menu bg-base-200 menu-compact flex flex-column gap-1 flex-2 p-2 w-1/4 min-w-[250px] rounded-box min-h-[80vh]">
+<ul class="menu bg-base-200 flex flex-column gap-1 flex-2 p-2 w-1/4 min-w-[250px] rounded-box min-h-[80vh]">
     <div class="p-5">
         <h1 class="text-2xl font-medium text-primary">Homeworks</h1>
     </div>

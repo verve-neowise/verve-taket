@@ -4,7 +4,7 @@
 </script>
 
 <div>
-    <a href="#comments-modal" class="btn btn-sm btn-primary { comment === '' ? 'btn-disabled' : '' } text-xs">Cumments</a>
+    <a href="#comments-modal" class="btn btn-primary { comment === '' ? 'btn-disabled' : '' } text-xs">Cumments</a>
 
     <div class="modal" id="comments-modal">
         <div class="modal-box">

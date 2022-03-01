@@ -1,7 +1,7 @@
 <script lang="ts">
 import { theme, changeTheme } from "../../store/app.store";
 
-const themes = ["light", "dark", "cupcake", "bumblebee", "emerald", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "corporate"]
+const themes = ["light", "dark",/* "cupcake", "bumblebee", "emerald", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "corporate"*/]
 
 theme.subscribe(value => {
   document.documentElement.setAttribute('data-theme', value)

@@ -10,13 +10,21 @@ export class User {
     }
 }
 
+export enum Role {
+    USER,
+    ADMIN
+}
+
 export class Auth {
     user: User
     message: string
+    role: Role
     token?: string
 
-    constructor(user: User, message: string, token?: string) {
+    constructor(user: User, role: Role, message: string, token?: string) {
+        console.log('role', role);
         this.user = user
+        this.role = role
         this.message = message
         this.token = token
      }

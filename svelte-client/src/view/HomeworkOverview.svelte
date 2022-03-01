@@ -75,7 +75,7 @@ import StatusElement from "./elements/StatusElement.svelte";
         {/each}
 
         <div class="justify-end card-actions pt-2">
-          <button type="submit" class="btn btn-primary btn-sm">Send all solves</button>
+          <button type="submit" class="btn btn-primary">Send all solves</button>
         </div>
       </form>
 

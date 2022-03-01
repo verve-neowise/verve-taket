@@ -37,12 +37,9 @@
             <span class="badge">New</span>
           </a>
         </li>
+        <!-- svelte-ignore a11y-missing-attribute -->
         <li><a on:click={() => logOut() }> Logout </a> </li>
       </ul>
     </div>
-
-    <!-- <Link to="/profile" class="btn btn-ghost"> -->
-
-    <!-- </Link> -->
   {/if}
 </div>
