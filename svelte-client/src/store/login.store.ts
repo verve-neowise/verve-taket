@@ -5,7 +5,7 @@ import type { Auth } from "../data/model/auth.model";
 
 import { Error, Loading, NetworkResult, Success } from "../data/network-result";
 
-export const auth = writable<NetworkResult<Auth>>(new Success(loadStorageData()))
+export const auth = writable<NetworkResult<Auth>>(loadStorageData())
 
 export const logOut = () => {
     clearStorageData()
@@ -33,5 +33,11 @@ function saveStorageData(auth: Auth) {
 }
 
 function loadStorageData() {
-    return JSON.parse(localStorage.getItem("user")) as Auth
+    let auth = JSON.parse(localStorage.getItem("user")) as Auth
+    if (auth) {
+        return new Success(auth)
+    }
+    else {
+        return undefined
+    }
 }

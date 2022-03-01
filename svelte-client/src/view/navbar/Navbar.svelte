@@ -3,7 +3,6 @@
   import { Link } from "svelte-navigator";
   import { auth, logOut } from "../../store/login.store";
   import { Success } from "../../data/network-result";
-  import { User } from "../../data/model/auth.model";
 </script>
 
 <div class="navbar bg-base-200 shadow-md">
