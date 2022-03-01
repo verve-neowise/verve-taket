@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Router, Route } from 'svelte-navigator';
+import Authorization from './view/Authorization.svelte';
   import Dashboard from './view/Dashboard.svelte';
   import Login from './view/Login.svelte';
 </script>
@@ -9,7 +10,9 @@
   <Router>
 
     <Route path='/'>
-      <Dashboard/>
+      <Authorization>
+        <Dashboard/>
+      </Authorization>
     </Route>
 
     <Route path='login'>
@@ -17,7 +20,9 @@
     </Route>
 
     <Route path="dashboard">
-      <Dashboard/>
+      <Authorization>
+        <Dashboard/>
+      </Authorization>
     </Route>
 
   </Router>

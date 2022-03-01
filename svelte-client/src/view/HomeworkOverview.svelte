@@ -36,6 +36,7 @@ import StatusElement from "./elements/StatusElement.svelte";
     <p class="text-base py-5">{$details.result.details}</p>
 
     <div class="flex justify-between items-center">
+      
       <Resources values={$details.result.resources}/>
       <div class="flex gap-5 items-center">
         <StatusElement value={$details.result.status}/>
