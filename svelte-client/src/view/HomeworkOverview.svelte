@@ -27,11 +27,10 @@ import StatusElement from "./elements/StatusElement.svelte";
 
   {#if $details instanceof Success}
 
-    <div class="flex justify-between items-center p-4">
+    <div class="flex justify-between items-center py-4">
       <Title value={ $details.result.name }/>
-      <p class="opacity-50 text-base-content text-xs">01.02.2003</p>
+      <StatusElement value={$details.result.status}/>
     </div>
-    <!-- <Comment value={$details.result.comment}/> -->
 
     <p class="text-base py-5">{$details.result.details}</p>
 
@@ -39,7 +38,6 @@ import StatusElement from "./elements/StatusElement.svelte";
       
       <Resources values={$details.result.resources}/>
       <div class="flex gap-5 items-center">
-        <StatusElement value={$details.result.status}/>
         <CommentModal
           comment={$details.result.comment}
         />

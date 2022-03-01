@@ -21,11 +21,12 @@ import { Status } from "../../data/model/status.enum";
     class=" {isActive ? 'bg-primary' : ''} "
     on:click={() => callback(model)}
   >
-    <div class="flex justify-between w-full items-center">
+    <div class="flex justify-between gap-1 w-full items-center">
       <div class="w-full {isActive ? 'text-primary-content' : ''}">
-        {model.name}
+        <div class="font-bold" > {model.name} </div>
+        <div class="text-xs opacity-80"> 01.05.2021</div>
       </div>
-        <div class="badge badge-xs {statusMap[ model.status]} border-none aspect-square text-xs"/>
+      <div class="badge badge-xs {statusMap[ model.status]} border-none aspect-square text-xs"/>
     </div>
 </a>
 </li>

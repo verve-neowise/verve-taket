@@ -27,7 +27,7 @@ const submitForm = async (e: Event) => {
 
 auth.subscribe(nr => {
     if (nr instanceof Success) {
-        navigate('/dashboard')
+        navigate('/')
     }
 })
 

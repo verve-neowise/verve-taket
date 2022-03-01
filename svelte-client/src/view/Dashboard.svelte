@@ -8,7 +8,7 @@
 </script>
 
 <main>
-  <Navbar />
+  <Navbar title="Dashboard" />
 
   <div class="container p-10 mx-auto flex items-start gap-5">
       <Sidebar/>
