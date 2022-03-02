@@ -13,7 +13,6 @@ import { mapFormDataToArray } from "../functions/forms";
 import { details } from "../store/homeworks.store";
 import { Loading, Success, Error } from "../data/network-result";
 import { ProblemType } from "../data/model/homework.model";
-import CommentModal from "./components/CommentModal.svelte";
 import FileElement from "./elements/FileElement.svelte";
 import StatusElement from "./elements/StatusElement.svelte";
 
@@ -24,7 +23,6 @@ import StatusElement from "./elements/StatusElement.svelte";
 
 </script>
 
-<div class="drawer-content flex-3 p-5 w-full h-full overflow-y-scroll">
 
   {#if $details instanceof Success}
 
@@ -100,4 +98,3 @@ import StatusElement from "./elements/StatusElement.svelte";
     </Contain>
 
   {/if}
-</div>

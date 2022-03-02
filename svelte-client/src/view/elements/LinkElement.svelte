@@ -6,6 +6,6 @@ export let data: Problem
 </script>
     
 <label class="input-group">
-    <span class="bg-base-300">Link</span>
-    <input type="text" name={data.code} placeholder="info@site.com" class="input bg-base-200 w-full">
+    <span>Link</span>
+    <input type="text" name={data.code} placeholder="your url" class="input input-bordered w-full">
 </label>

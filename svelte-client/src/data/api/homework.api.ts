@@ -39,8 +39,8 @@ const getHomeworkDetails = async ( id: string ) => {
         homework.status,
         homework.rate,
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi. Delectus laboriosam blanditiis eos expedita officiis id asperiores, ad adipisci assumenda quia cupiditate?",
-        "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
-        // undefined,
+        // "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
+        undefined,
         resources,
         problems
     )

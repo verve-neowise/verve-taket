@@ -17,9 +17,7 @@ homeworks.subscribe(value => {
 fetch()
 
 </script>
-
-<div class="drawer-side bg-base-200">
-    <ul class="menu menu-compact flex flex-column  gap-1 flex-2 p-2 w-1/4 min-w-[300px] h-screen overflow-y-scroll">
+    <ul class="menu menu-compact flex flex-column gap-1 flex-2 p-2 h-screen">
         <div class="p-5">
             <h1 class="text-2xl font-medium text-base-content">Homeworks</h1>
             <div class="divider my-1"></div>
@@ -51,11 +49,6 @@ fetch()
     
         {/if}
     </ul>
-</div>
 
 <style>
-    .drawer-side {
-        scroll-behavior: smooth;
-        scroll-padding-top: 5rem;
-    }
 </style>
