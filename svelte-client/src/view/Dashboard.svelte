@@ -7,10 +7,9 @@
 
 </script>
 
-<main>
+<main class="flex flex-col h-screen">
   <Navbar title="Dashboard" />
-
-  <div class="container p-10 mx-auto flex items-start gap-5">
+  <div class="drawer flex items-start">
       <Sidebar/>
       <HomeworkOverview/>
   </div>

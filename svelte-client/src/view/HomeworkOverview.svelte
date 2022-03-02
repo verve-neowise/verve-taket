@@ -21,9 +21,10 @@ import StatusElement from "./elements/StatusElement.svelte";
     let data = mapFormDataToArray(new FormData(event.target));
     console.log(data);
   }
+
 </script>
 
-<div class="card flex-3 p-5 w-full bg-base-200">
+<div class="drawer-content flex-3 p-5 w-full h-full overflow-y-scroll">
 
   {#if $details instanceof Success}
 
@@ -38,12 +39,21 @@ import StatusElement from "./elements/StatusElement.svelte";
       
       <Resources values={$details.result.resources}/>
       <div class="flex gap-5 items-center">
-        <CommentModal
-          comment={$details.result.comment}
-        />
+        <!-- <CommentModal
+          comment={}
+        /> -->
       </div>
     </div>
-
+    {#if $details.result.comment !== undefined}
+      <div tabindex="0" class="mt-5 collapse border border-base-300 bg-base-200 collapse-arrow"> 
+        <div class="collapse-title text-md font-mono font-bold">
+          See comments
+        </div>
+        <div class="collapse-content bg-base-100"> 
+          <p>{$details.result.comment}</p>
+        </div>
+      </div>
+    {/if}
     <div class="divider"></div>
 
       <form on:submit|preventDefault={sendSolves} class="flex flex-col gap-5">
@@ -71,7 +81,7 @@ import StatusElement from "./elements/StatusElement.svelte";
             {/if}
           </Element> 
         {/each}
-
+        <div class="divider"></div>
         <div class="justify-end card-actions pt-2">
           <button type="submit" class="btn btn-primary">Send all solves</button>
         </div>

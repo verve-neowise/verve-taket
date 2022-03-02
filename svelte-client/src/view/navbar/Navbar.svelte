@@ -8,7 +8,7 @@
 
 </script>
 
-<div class="navbar bg-base-100 shadow-md rounded-box">
+<div class="navbar bg-base-300">
   <div class="flex-1">
     <!-- svelte-ignore a11y-missing-attribute -->
     <a class="btn btn-ghost normal-case text-xl">{title}</a>

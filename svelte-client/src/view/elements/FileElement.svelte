@@ -12,7 +12,7 @@
 </script>
 
 <div class="flex gap-5 text-xs">
-    <input multiple on:change={fileSelected}  type="file" name={data.code} class="custom-input input before:text-base-content btn"/>
+    <input multiple on:change={fileSelected}  type="file" name={data.code} class="custom-input input before:text-base-content bg-base-300"/>
     <div class="flex flex-wrap gap-2">
         {#each files as file}
             <div class="badge p-3 rounded-sm text-xs"> {file.name} </div>
