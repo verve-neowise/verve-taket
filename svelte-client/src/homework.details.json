@@ -1,0 +1,39 @@
+{
+  "id": "00001",
+  "name": "Flexbox",
+  "status": "success | wrong | send | neutral",
+  "rate": "{rate}",
+  "details": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi. Delectus laboriosam blanditiis eos expedita officiis id asperiores, ad adipisci assumenda quia cupiditate?",
+  "comment": "Fugiat quod quaerat impedit quam facere rerum. Rem, excepturi.",
+  "resources": [
+    { "name": "Notion.so", "link": "https://notion.so" },
+    { "name": "Notion.so", "link": "https://notion.so" },
+    { "name": "Notion.so", "link": "https://notion.so" }
+  ],
+  "problems": [
+    { 
+      "code": "index",
+      "name": "index.html", 
+      "comment": "Write a index.html with Bootstrap css framework!", 
+      "type": "code"
+    },
+    { 
+      "code": "repository",
+      "name": "Your Repository URL", 
+      "comment": "Upload all files to github and paste link here", 
+      "type": "link"
+    },
+    { 
+      "code": "repository",
+      "name": "Your Repository URL", 
+      "comment": "Upload all files to github and paste link here", 
+      "type": "text"
+    },
+    { 
+      "code": "repository",
+      "name": "Your Repository URL", 
+      "comment": "Upload all files to github and paste link here", 
+      "type": "code"
+    }
+  ]
+}
